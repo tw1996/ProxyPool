@@ -46,7 +46,6 @@ class RedisClient(object):
         """
         self._db.flushall()
 
-
 if __name__ == '__main__':
     conn = RedisClient()
     print(conn.pop())

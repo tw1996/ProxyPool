@@ -20,8 +20,9 @@ def crawl(url, proxy):
 
 
 def main():
-    proxy = get_proxy()
-    html = crawl('http://docs.jinkan.org/docs/flask/', proxy)
+    #proxy = get_proxy()
+    proxy = '183.48.35.137:8118'
+    html = crawl('http://httpbin.sheep3.cn/ip', proxy)
     print(html)
 
 if __name__ == '__main__':

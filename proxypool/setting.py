@@ -3,14 +3,14 @@ HOST = 'localhost'
 PORT = 6379
 
 # 如果Redis有密码，则添加这句密码，否则设置为None或''
-PASSWORD = ''
+PASSWORD = None
 
 # 获得代理测试时间界限
 get_proxy_timeout = 9
 
 # 代理池数量界限
-POOL_LOWER_THRESHOLD = 20
-POOL_UPPER_THRESHOLD = 150
+POOL_LOWER_THRESHOLD = 100
+POOL_UPPER_THRESHOLD = 200
 
 # 检查周期
 VALID_CHECK_CYCLE = 60

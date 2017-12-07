@@ -21,17 +21,18 @@ def crawl(url, proxy):
 
 def main():
     count = 0
+    # 请求不同的代理和headers
+    global proxy,headers,count_proxys
+
     while True:
-        # print('第 ',count,' 次测试')
+        print('第 ',count + 1,' 次测试')
         count = count + 1
         try:
-            #请求不同的代理和headers
-            global headers,count_proxys
             headers = {'User-Agent': ua.random}
             count_proxys = get_count_proxys()
             print('代理总数： ',count_proxys,'  当前所用的代理：',proxy,'\n',headers)
             start_time = time.clock()
-            html = crawl('http://www.baidu.com', proxy)
+            html = crawl('http://weixin.sogou.com/weixin?type=2&page=3&query=电影', proxy)
             end_time = time.clock()
             print('代理连接时间： ',(str(end_time-start_time))[:4],' 秒')
             if html.status_code==200:
@@ -43,7 +44,7 @@ def main():
                 break
 
         except (ChunkedEncodingError,ConnectionError,Timeout,UnboundLocalError,UnicodeError,ProxyError):
-            global proxy
+
             proxy = get_proxy()
             print('代理失败,更换代理','\n')
             # print(' ')

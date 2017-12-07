@@ -1,11 +1,10 @@
 from flask import Flask, g
 
-from .db import RedisClient
+from proxypool.db  import RedisClient
 
 __all__ = ['app']
 
 app = Flask(__name__)
-
 
 def get_conn():
     """
@@ -29,7 +28,6 @@ def get_proxy():
     """
     conn = get_conn()
     return conn.pop()
-
 
 @app.route('/count')
 def get_counts():
